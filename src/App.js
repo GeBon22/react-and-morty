@@ -16,7 +16,6 @@ function App() {
      <Router>
       <Card />
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/favorites" element={<Favorite />} />
           <Route path="/random" element={<Random />} />
           <Route path="/other" element={<Other />} />

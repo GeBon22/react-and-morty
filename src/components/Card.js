@@ -7,6 +7,7 @@ export default function Card() {
             <img src="https://rickandmortyapi.com/api/character/avatar/2.jpeg" alt="Morty" />
 
             <Cardh2>Morty Smith</Cardh2>
+            <button>Show more</button>
 
         </Cards>
         

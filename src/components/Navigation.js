@@ -18,7 +18,10 @@ export default function Navigation() {
 }
 
 const Navbar = styled.ul`
+    display: block;
     color: black;
     padding: 30px; 
-    background-color: red;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap
 `;
