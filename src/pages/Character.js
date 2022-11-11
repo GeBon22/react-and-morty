@@ -15,7 +15,7 @@ export default function Character( {apiData} ) {
     function saveFavorite() {
         setFavorite(!favorite)
 
-        // an dieser Stelle muss die Datei gespeichert und an Favorite weitergegeben werden...
+        // here I got to add the as favorite marked card/character and send it over to the favorites.page
 
     }
 
