@@ -5,12 +5,37 @@ import { useState } from "react";
 
 export default function Character( {apiData} ) {
     let {charId} = useParams();
-    const [toggle, setToggle] = useState(true);
+    const [toggleButton, setToggleButton] = useState(true);
+    const [favorite, setFavorite] = useState(false);
 
     function showAnswer() {
-        setToggle(!toggle)
+        setToggleButton(!toggleButton)
     }
-    
+
+    function saveFavorite() {
+        setFavorite(!favorite)
+        console.log(favorite);
+    }
+
+/*     const handleClick = event => {
+        console.log(event.detail);
+        switch (event.detail) {
+          case 1: {
+            saveFavorite();
+            console.log('first click');
+            break;
+          }
+          case 2: {
+            saveFavorite();
+            console.log('second click');
+            break;
+          }
+          default: {
+            break;
+          }
+        }
+      }; */
+
     const foundApi = apiData.find((character) => {
         return character.id === Number(charId)
     })
@@ -18,9 +43,10 @@ export default function Character( {apiData} ) {
 
         return(
     
-    <CardContainer toggle={toggle}>
+    <CardContainer toggle={toggleButton}>
 
             <div>{foundApi && <h1>{foundApi.name}</h1>}</div>
+            <button onClick={saveFavorite} style={{backgroundColor: favorite === true ? "lightgreen" : "white"}}>Save as favorite</button>
             <img src={foundApi.image} alt={foundApi.name} />
             <br></br>
         
