@@ -5,42 +5,53 @@ import { useState } from "react";
 
 export default function Character( {apiData} ) {
     let {charId} = useParams();
-    const [showMore, setShowMore] = useState(false)
+    const [toggle, setToggle] = useState(true);
+
+    function showAnswer() {
+        setToggle(!toggle)
+    }
     
     const foundApi = apiData.find((character) => {
         return character.id === Number(charId)
     })
-    console.log({foundApi})
+    /* console.log({foundApi}) */
 
         return(
-    <section>
-            <div>{foundApi && <h1>{foundApi.name}</h1>}</div>
+    
+    <CardContainer toggle={toggle}>
 
+            <div>{foundApi && <h1>{foundApi.name}</h1>}</div>
             <img src={foundApi.image} alt={foundApi.name} />
             <br></br>
-    <buttonContainer>
-           
-         <button className="btn" onClick={() => setShowMore(!showMore)}>{showMore ? "Show less" : "Show more"}</button>
+        
+         <button className="btn" onClick={showAnswer}>{showAnswer ? "show more" : "show less"}</button>
+         <ul>
+         <li>Species: {foundApi.species}</li>
+         <li>Gender: {foundApi.gender}</li>
+         <li>Status: {foundApi.status}</li>
+         </ul>
 
-        <showMoreText>
-         <p>{foundApi.species}</p>
-         <p>{foundApi.gender}</p>
-         <p>{foundApi.status}</p>
-        </showMoreText>
-
-     </buttonContainer>
-     </section>
+    </CardContainer>
      )
     }
 
 
 
-const buttonContainer = styled.div`
+const CardContainer = styled.div`
+    ul {
     display: grid;
-
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    ${(props) => props.toggle && "visibility: hidden"};
+    }
+    li {
+        list-style: none;
+    }
 
 `;
-
+/* 
 const showMoreText = styled.div`
     color: black;
-`
+    
+`; */
