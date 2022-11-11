@@ -19,9 +19,13 @@ export default function Navigation() {
 
 const Navbar = styled.ul`
     display: block;
+    background-color: white;
     color: black;
-    padding: 30px; 
+    padding: 20px; 
     display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    position: sticky;
+    bottom: 0px;
+    z-index: 10;
 `;
