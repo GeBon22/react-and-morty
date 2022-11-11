@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 //import Character from "../pages/Character";
 
-export default function Card() {
-    const [apiData, setApiData] = useState([]);
+export default function Card( {apiData} ) {
+/*     const [apiData, setApiData] = useState([]);
 
 useEffect(() => {
     async function fetchData() {
@@ -14,7 +14,7 @@ useEffect(() => {
         setApiData(data.results);
     }
     fetchData();
-}, [])
+}, []) */
     return (
         
         <Cards>

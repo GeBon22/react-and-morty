@@ -1,36 +1,38 @@
-import { useState } from "react";
+//import { useState } from "react";
 import styled from "styled-components";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
 
-export default function Character( character ) {
-    let {id} = useParams();
-
-  //const character.find() --> 
+export default function Character( {apiData} ) {
+    let {charId} = useParams();
+    const [showMore, setShowMore] = useState(false)
+    
+    const foundApi = apiData.find((character) => {
+        return character.id === Number(charId)
+    })
+    console.log({foundApi})
 
         return(
+    <section>
+            <div>{foundApi && <h1>{foundApi.name}</h1>}</div>
 
-            <h1>Character Page {id}</h1>
-            
-            
-    
-        )
-    }
-   /*  
-        <img src={character.image} alt={character.name} />
-        <h2>{Character.name}</h2>
-    
-    
-     <buttonContainer>
-        {showMore ? text : `${text.substring(0, 0)}`}
+            <img src={foundApi.image} alt={foundApi.name} />
+            <br></br>
+    <buttonContainer>
+           
          <button className="btn" onClick={() => setShowMore(!showMore)}>{showMore ? "Show less" : "Show more"}</button>
 
-         <p>{Character.species}</p>
-         <p>{Character.gender}</p>
-         <p>{Character.status}</p>
+        <showMoreText>
+         <p>{foundApi.species}</p>
+         <p>{foundApi.gender}</p>
+         <p>{foundApi.status}</p>
+        </showMoreText>
 
      </buttonContainer>
+     </section>
+     )
+    }
 
- */
 
 
 const buttonContainer = styled.div`
@@ -38,3 +40,7 @@ const buttonContainer = styled.div`
 
 
 `;
+
+const showMoreText = styled.div`
+    color: black;
+`
