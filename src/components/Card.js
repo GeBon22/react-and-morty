@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+//import Character from "../pages/Character";
 
 export default function Card() {
     const [apiData, setApiData] = useState([]);
@@ -19,10 +21,12 @@ useEffect(() => {
         <ul>
         {apiData.map((character) => {
             return(
-                <li>
+                <li key={character.id}>
                      <img src={character.image} alt={character.name} />
                      <Cardh2>{character.name}</Cardh2>
-                     <button>Show more</button>
+                     <Link to={{
+                     pathname: `/Character/`+ character.id
+                    }}><button> show more</button></Link>
                 </li>
             );
         })                                                                                       }
