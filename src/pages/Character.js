@@ -14,34 +14,18 @@ export default function Character( {apiData} ) {
 
     function saveFavorite() {
         setFavorite(!favorite)
-        console.log(favorite);
-    }
 
-/*     const handleClick = event => {
-        console.log(event.detail);
-        switch (event.detail) {
-          case 1: {
-            saveFavorite();
-            console.log('first click');
-            break;
-          }
-          case 2: {
-            saveFavorite();
-            console.log('second click');
-            break;
-          }
-          default: {
-            break;
-          }
-        }
-      }; */
+        // an dieser Stelle muss die Datei gespeichert und an Favorite weitergegeben werden...
+
+    }
 
     const foundApi = apiData.find((character) => {
         return character.id === Number(charId)
     })
     /* console.log({foundApi}) */
 
-        return(
+    
+    return (
     
     <CardContainer toggle={toggleButton}>
 
@@ -61,14 +45,12 @@ export default function Character( {apiData} ) {
      )
     }
 
-
-
 const CardContainer = styled.div`
     ul {
     display: grid;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
     ${(props) => props.toggle && "visibility: hidden"};
     }
     li {
@@ -76,8 +58,3 @@ const CardContainer = styled.div`
     }
 
 `;
-/* 
-const showMoreText = styled.div`
-    color: black;
-    
-`; */

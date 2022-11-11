@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export default function Favorites(){
+export default function Favorite(){
     return (
       <div>
-        <h2>Favorites</h2>
+        <h2>Favorite</h2>
       </div>
     );
   }

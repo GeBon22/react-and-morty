@@ -31,7 +31,7 @@ function App() {
      <Router>
         <Routes>
           <Route path="/" element={<Home apiData={apiData} />} />
-          <Route path="/favorites" element={<Favorite />} />
+          <Route path="/favorite" element={<Favorite />} />
           <Route path="/random" element={<Random />} />
           <Route path="/other" element={<Other />} />
           <Route path={"/Character/:charId"} element={<Character apiData={apiData}/>} />
