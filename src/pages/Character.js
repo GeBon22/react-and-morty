@@ -3,44 +3,56 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 
-export default function Character( {apiData} ) {
+export default function Character( { favorite, handleToggleFavorite, apiData }  ) {
     let {charId} = useParams();
-    const [showMore, setShowMore] = useState(false)
-    
+    const [toggleButton, setToggleButton] = useState(true);
+
+    function showAnswer() {
+        setToggleButton(!toggleButton)
+    }
+
     const foundApi = apiData.find((character) => {
         return character.id === Number(charId)
     })
-    console.log({foundApi})
+    /* console.log({foundApi}) */
 
-        return(
-    <section>
+    
+    return (
+    
+    <CardContainer toggle={toggleButton}>
+
             <div>{foundApi && <h1>{foundApi.name}</h1>}</div>
-
             <img src={foundApi.image} alt={foundApi.name} />
             <br></br>
-    <buttonContainer>
-           
-         <button className="btn" onClick={() => setShowMore(!showMore)}>{showMore ? "Show less" : "Show more"}</button>
+            <FavoriteButton favorite={favorite.includes(charId)} onClick={() => handleToggleFavorite(charId)} >Save as favorite</FavoriteButton>
+            <br></br>
+            <br></br>
+        
+         <button className="btn" onClick={showAnswer}>{showAnswer ? "show more" : "show less"}</button>
+         <ul>
+         <li>Species: {foundApi.species}</li>
+         <li>Gender: {foundApi.gender}</li>
+         <li>Status: {foundApi.status}</li>
+         </ul>
 
-        <showMoreText>
-         <p>{foundApi.species}</p>
-         <p>{foundApi.gender}</p>
-         <p>{foundApi.status}</p>
-        </showMoreText>
-
-     </buttonContainer>
-     </section>
+    </CardContainer>
      )
     }
 
-
-
-const buttonContainer = styled.div`
+const CardContainer = styled.div`
+    ul {
     display: grid;
-
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    ${(props) => props.toggle && "visibility: hidden"};
+    }
+    li {
+        list-style: none;
+    }
 
 `;
 
-const showMoreText = styled.div`
-    color: black;
-`
+const FavoriteButton = styled.button`
+    ${(props) => props.favorite && "background-color: lightgreen"};
+`;

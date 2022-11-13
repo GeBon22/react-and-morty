@@ -7,7 +7,7 @@ export default function Navigation() {
     return (
     <Navbar>
         <Link to="/">Home</Link>
-        <Link to="favorites">Favorites</Link>
+        <Link to="favorite">Favorite</Link>
         <Link to="random">Random</Link>
         <Link to="other">Other</Link>
     </Navbar>
