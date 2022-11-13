@@ -30,8 +30,10 @@ export default function Character( {apiData} ) {
     <CardContainer toggle={toggleButton}>
 
             <div>{foundApi && <h1>{foundApi.name}</h1>}</div>
-            <button onClick={saveFavorite} style={{backgroundColor: favorite === true ? "lightgreen" : "white"}}>Save as favorite</button>
             <img src={foundApi.image} alt={foundApi.name} />
+            <br></br>
+            <button onClick={saveFavorite} style={{backgroundColor: favorite === true ? "lightgreen" : "white"}}>Save as favorite</button>
+            <br></br>
             <br></br>
         
          <button className="btn" onClick={showAnswer}>{showAnswer ? "show more" : "show less"}</button>
