@@ -18,6 +18,8 @@ export default function Favorite( {favorite, saveFavorite, handleToggleFavorite}
 
     return (
       <CardContainer>
+        <h2>Favorites</h2>
+
       {favCharacters?.map((favCharacter) => {
         return (
           <article key={favCharacter.id}>
@@ -57,6 +59,6 @@ const CardContainer = styled.div`
   h2 {
     text-align: center;
     padding: 0;
-    margin: 0;
+    margin: 10;
   }
 `;
