@@ -3,20 +3,12 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 
-export default function Character( {apiData} ) {
+export default function Character( { favorite, handleToggleFavorite, apiData}  ) {
     let {charId} = useParams();
     const [toggleButton, setToggleButton] = useState(true);
-    const [favorite, setFavorite] = useState(false);
 
     function showAnswer() {
         setToggleButton(!toggleButton)
-    }
-
-    function saveFavorite() {
-        setFavorite(!favorite)
-
-        // here I got to add the as favorite marked card/character and send it over to the favorites.page
-
     }
 
     const foundApi = apiData.find((character) => {
@@ -32,7 +24,7 @@ export default function Character( {apiData} ) {
             <div>{foundApi && <h1>{foundApi.name}</h1>}</div>
             <img src={foundApi.image} alt={foundApi.name} />
             <br></br>
-            <button onClick={saveFavorite} style={{backgroundColor: favorite === true ? "lightgreen" : "white"}}>Save as favorite</button>
+            <FavoriteButton favorite={favorite.includes(charId)} onClick={() => handleToggleFavorite(charId)} >Save as favorite</FavoriteButton>
             <br></br>
             <br></br>
         
@@ -59,4 +51,8 @@ const CardContainer = styled.div`
         list-style: none;
     }
 
+`;
+
+const FavoriteButton = styled.button`
+  background: ${(props) => (props.isFavorite ? "lightgreen" : "white")};
 `;
