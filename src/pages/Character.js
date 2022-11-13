@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 
-export default function Character( { favorite, handleToggleFavorite, apiData}  ) {
+export default function Character( { favorite, handleToggleFavorite, apiData }  ) {
     let {charId} = useParams();
     const [toggleButton, setToggleButton] = useState(true);
 
@@ -54,5 +54,5 @@ const CardContainer = styled.div`
 `;
 
 const FavoriteButton = styled.button`
-  background: ${(props) => (props.isFavorite ? "lightgreen" : "white")};
+    ${(props) => props.favorite && "background-color: lightgreen"};
 `;
