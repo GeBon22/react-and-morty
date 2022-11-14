@@ -43,7 +43,7 @@ li{
 
     padding: 30px;
     display: grid;
-    justify-content: center
+    justify-content: center;
 
 `;
 
