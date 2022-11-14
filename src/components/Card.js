@@ -1,20 +1,10 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+//import { useEffect, useState } from "react";
 //import Character from "../pages/Character";
 
 export default function Card( {apiData} ) {
-/*     const [apiData, setApiData] = useState([]);
 
-useEffect(() => {
-    async function fetchData() {
-        const response = await fetch("https://rickandmortyapi.com/api/character");
-        const data = await response.json();
-        console.log(data);
-        setApiData(data.results);
-    }
-    fetchData();
-}, []) */
     return (
         
         <Cards>

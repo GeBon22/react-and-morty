@@ -1,6 +1,6 @@
 import styled from "styled-components";
-//import Character from "./Character";
 import { useState, useEffect } from "react";
+//import Character from "./Character";
 
 export default function Favorite( {favorite, saveFavorite, handleToggleFavorite}){
 

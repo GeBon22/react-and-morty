@@ -24,7 +24,8 @@ export default function Character( { favorite, handleToggleFavorite, apiData }  
             <div>{foundApi && <h1>{foundApi.name}</h1>}</div>
             <img src={foundApi.image} alt={foundApi.name} />
             <br></br>
-            <FavoriteButton favorite={favorite.includes(charId)} onClick={() => handleToggleFavorite(charId)} >Save as favorite</FavoriteButton>
+            <FavoriteButton favorite={favorite.includes(charId)} 
+            onClick={() => handleToggleFavorite(charId)} >Save as favorite</FavoriteButton>
             <br></br>
             <br></br>
         
